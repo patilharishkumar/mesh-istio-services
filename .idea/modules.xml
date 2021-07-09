@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/apiv3-service/apiv3-service.iml" filepath="$PROJECT_DIR$/apiv3-service/apiv3-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/camera-manager-service/camera-manager-service.iml" filepath="$PROJECT_DIR$/camera-manager-service/camera-manager-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample-istio-services.iml" filepath="$PROJECT_DIR$/sample-istio-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-istio/spring-boot-istio.iml" filepath="$PROJECT_DIR$/spring-boot-istio/spring-boot-istio.iml" />
+    </modules>
+  </component>
+</project>

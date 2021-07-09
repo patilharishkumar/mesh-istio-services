@@ -1,0 +1,93 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: camera-manager-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "camera-manager.com"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: camera-manager-service-destination
+spec:
+  host: camera-manager-service
+  subsets:
+    - name: v1
+      labels:
+        version: v1
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: camera-manager-service-route
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - camera-manager-gateway
+  http:
+  - match:
+    - headers:
+        cookie:
+          regex: "^(.*;?)?(auth_key=c001).*(;.*)?"
+    route:
+    - destination:
+        host: camera-manager-service
+        subset: v1
+  # - match:
+  #   - headers:
+  #       Accept:
+  #         regex: "^(.*;?)?(auth_key=c001(*))(;.*)?"
+  #   route:
+  #   - destination:
+  #       host: camera-manager-service
+  #       subset: v1
+
+
+  # - match:
+  #   - uri:
+  #       prefix: /
+  #     queryParams:
+  #       version:
+  #         exact: bar
+  #   route:
+  #   - destination:
+  #       port:
+  #         number: 80
+  #       host: nginx.demo.svc.cluster.local
+  #       subset: bar
+
+  # - match:
+  #   - headers:
+  #       authorization:
+  #         exact: some-unique-string-here
+  #     name: some-name
+  #   route:
+  #   - destination:
+  #       host: my-service
+#      timeout: 0.5s # - to enable if using Istio fault on service route
+
+
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: external-svc-https
+spec:
+  hosts:
+  - api.dropboxapi.com
+  - www.googleapis.com
+  - api.facebook.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS

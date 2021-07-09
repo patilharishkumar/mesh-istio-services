@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2alpha1
+kind: Config
+build:
+  artifacts:
+    - image: hpatil/camera-manager-service
+      jib: {}
+  tagPolicy:
+    gitCommit: {}
+# deploy:
+#   helm:
+#     releases:
+#     - chartPath: ./chart/camera-manager
+#       imageStrategy:
+#         helm: {}
+#       name: camera-manager-service
+#       recreatePods: false

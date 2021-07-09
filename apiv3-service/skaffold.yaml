@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2alpha1
+kind: Config
+build:
+  artifacts:
+    - image: hpatil/apiv3-service
+      jib: {}
+  tagPolicy:
+    gitCommit: {}
+# deploy:
+#   helm:
+#     releases:
+#     - chartPath: ./chart/apiv3
+#       imageStrategy:
+#         helm: {}
+#       name: apiv3-service
+#       recreatePods: false

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camera-manager-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camera-manager-service
+  template:
+    metadata:
+      name: camera-manager-service
+      labels:
+        app: camera-manager-service
+        version: v1
+    spec:
+      containers:
+      - name: camera-manager-service
+        image: hpatil/camera-manager-service
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+          - name: VERSION
+            value: "v1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: camera-manager-service
+  labels:
+    app: camera-manager-service
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      name: http
+  selector:
+    app: camera-manager-service

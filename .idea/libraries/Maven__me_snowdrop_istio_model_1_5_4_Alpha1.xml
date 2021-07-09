@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: me.snowdrop:istio-model:1.5.4-Alpha1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/snowdrop/istio-model/1.5.4-Alpha1/istio-model-1.5.4-Alpha1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/me/snowdrop/istio-model/1.5.4-Alpha1/istio-model-1.5.4-Alpha1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/snowdrop/istio-model/1.5.4-Alpha1/istio-model-1.5.4-Alpha1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

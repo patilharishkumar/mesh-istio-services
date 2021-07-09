@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-boot-istio" />
+        <module name="apiv3-service" />
+        <module name="camera-manager-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="apiv3-service" target="11" />
+      <module name="camera-manager-service" target="11" />
+      <module name="sample-istio-services" target="1.5" />
+      <module name="spring-boot-istio" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apiv3-service" options="-parameters" />
+      <module name="camera-manager-service" options="-parameters" />
+    </option>
+  </component>
+</project>
